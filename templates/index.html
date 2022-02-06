@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
+{% block title %}
+    Home
+{% endblock %}
 {% block body %}
-    this is an index page
+
 <div class="container">
+<center><h3>Book Details</h3></center>
 <table class="table">
   <thead>
     <tr>
@@ -27,7 +31,7 @@
       <td>{{ book.edition }}</td>
       <td>RS {{ book.price }}</td>
       <td>{{ book.in_stock }}</td>
-        <td><a href="/buy/{{book.id }}">Buy</a> {% if user.is_superuser %}<a href="/delete/{{ book.id }}">DELETE</a> {% endif %} </td>
+        <td><a class="btn btn-primary" href="/buy/{{book.id }}">Buy</a> {% if user.is_superuser %}<a  class="btn btn-danger" href="/delete/{{ book.id }}">DELETE</a> {% endif %} </td>
     </tr>
     {% endfor %}
 
