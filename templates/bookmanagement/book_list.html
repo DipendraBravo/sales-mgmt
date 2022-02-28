@@ -1,0 +1,73 @@
+{% extends 'bookmanagement/base.html' %}
+{% block title %}
+    Home
+{% endblock %}
+{% block body %}
+
+<div class="container">
+<div>
+<div class="d-flex justify-content-between">
+   	<div class="text-start">
+	   <a type="button" class="btn btn-success " href="{% url 'book_create' %}">Create</a>
+	</div>
+    <form class="d-flex justify-content-between">
+        <input class="form-control mr-5" type="search" placeholder="Search" aria-label="Search">&nbsp;
+        <button class="btn btn-success btn-sm" type="submit">Search</button>
+      </form>
+</div>
+
+<table class="table table-hover text-start fadeInDown">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Image</th>
+      <th scope="col">Book_Name</th>
+      <th scope="col">Author</th>
+      <th scope="col">Edition</th>
+      <th scope="col">Price</th>
+      <th scope="col">in_stock</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for book in object_list %}
+    <tr>
+        <th scope="row"><a href="{% url 'BookDetail' book.id %}" >{{ book.id }}</a></th>
+      <td><img  src="{{ book.image.url }}" alt="" width="50px" height="50px"></td>
+    <td>{{ book.book_name }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.edition }}</td>
+      <td>RS {{ book.unitprice }}</td>
+      <td>{{ book.in_stock }}</td>
+        <td><a class="btn btn-primary" href="{% url 'BookUpdate' book.id %}">Buy</a> {% if user.is_superuser %}<a class="btn btn-warning" href="{% url 'BookUpdate' book.id %}" >update</a> <a  class="btn btn-danger" href="{% url 'BookDelete' book.id %}">DELETE</a> {% endif %} </td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+
+
+<div class="d-flex justify-content-end pagination">
+    <span class="step-links">
+        {% if object_list.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ object_list.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+           Rows per page:{{ object_list.paginator.num_pages }} Page {{ object_list.number }} of {{ object_list.paginator.num_pages }} of {{ object_list.paginator.count }}
+        </span>
+
+        {% if object_list.has_next %}
+            <a href="?page={{ object_list.next_page_number }}">next</a>
+            <a href="?page={{ object_list.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+
+    </span>
+</div>
+</div>
+
+</div>
+
+{% endblock body %}

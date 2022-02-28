@@ -1,0 +1,77 @@
+{% extends 'bookmanagement/base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="col-md-8">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Book Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary " id="bookname">
+                      {{ form.book_name|as_crispy_field }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Author Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ form.author|as_crispy_field }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Book Edition</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ form.edition|as_crispy_field }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Available Stock</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ form.in_stock|as_crispy_field }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Book Price</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                       {{ form.unitprice|as_crispy_field }}
+                    </div>
+                  </div>
+                  <hr>
+                        <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Cover Image</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                       {{ form.image|as_crispy_field }}
+                    </div>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <button class="btn btn-info" type="submit">save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+   </form>
+            </div>
+<script>
+console.log(document.getElementById("id_book_name").value("gogo"))
+
+</script>
+{% endblock %}

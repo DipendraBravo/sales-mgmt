@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bookmanagement',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'Intern.wsgi.application'
 
@@ -127,3 +129,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'coverpages')
 MEDIA_URL = '/coverpages/'
 
 LOGIN_URL = '/login'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = '/'
