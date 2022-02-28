@@ -1,0 +1,95 @@
+{% extends 'bookmanagement/base.html' %}
+{% block body %}
+<div class="container">
+    <div class="main-body">
+
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+          </nav>
+          <!-- /Breadcrumb -->
+
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="{{ object.image.url }}" alt="Admin" class="" width="200">
+                    <div class="mt-3">
+                      <h4>{{ object.book_name }}</h4>
+                      <p class="text-secondary mb-1">{{ object.author }}</p>
+                      <button class="btn btn-primary">buy</button>
+                      <a class="btn btn-outline-danger" href="{% url 'BookDelete' object.id %}" >Delete</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Book Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ object.book_name }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Author Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ object.author }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Book Edition</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ object.edition }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Available Stock</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ object.in_stock }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Book Price</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Rs {{ object.unitprice }} /-
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-info " href="{% url 'BookUpdate' object.id %}">Edit</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    </div>
+{#    as-----#}
+
+{% endblock body %}
