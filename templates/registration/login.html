@@ -3,28 +3,44 @@
     Login
 {% endblock title %}
 {% block body  %}
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
 
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-    </div>
+<div class="container">
 
-    <!-- Login Form -->
-    <form method="POST">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+
+        <div class="card my-5">
+
+          <form class="card-body cardbody-color p-lg-5" method="post">
+
         {% csrf_token %}
-      <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
-      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
-    </form>
+            <div class="text-center">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC727MmYCfq1NcVIAYwFFRKTO06a2Zu_evqA&usqp=CAU" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                width="200px" alt="profile">
+                   <h2 class="text-center text-dark mt-5">Login Form</h2><br>
+            </div>
 
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+            <div class="mb-3">
+              <input type="text" class="form-control" id="Username" name="username" aria-describedby="emailHelp"
+                placeholder="User Name">
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" id="password" name="password" placeholder="password">
+            </div>
+            <div class="text-center"><button type="submit" class="btn btn-primary px-5 mb-5 w-100">Login</button></div>
+            <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
+              Registered? <a href="#" class="text-dark fw-bold"> Create an
+                Account</a>
+            </div>
+          </form>
+        </div>
+
+      </div>
     </div>
-
   </div>
+
 </div>
+
 {% endblock body %}

@@ -1,0 +1,34 @@
+{% extends 'bookmanagement/base.html' %}
+{% block body %}
+    <div class="container">
+     <table class="table table-hover text-start fadeInDown">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">S.no</th>
+                    <th scope="col">username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Firstname</th>
+                    <th scope="col">Lastname</th>
+                    <th scope="col">staff</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in object_list %}
+                      <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                        <td>{{ user.is_staff }}</td>
+                        <td>
+
+                        </td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+            </table>
+    </div>
+{% endblock %}
